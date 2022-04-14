@@ -93,9 +93,9 @@ class LoginScreen : ComponentActivity() {
   @Composable
   fun SignIn(){
     Button(onClick = {
-//      val intent = Intent(this@LoginScreen, HomeActivity::class.java)
-//      startActivity(intent)
-//      finish()
+      val intent = Intent(this@LoginScreen, HomeActivity::class.java)
+      startActivity(intent)
+      finish()
 
     },modifier = Modifier
       .padding(top = 25.dp)

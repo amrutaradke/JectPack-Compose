@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JetPackCompose">
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.JetPackCompose.NoActionBar">
@@ -20,6 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginScreen"/>
+        <activity android:name=".HomeActivity"/>
+        <activity android:name=".FavoriteAcivity"/>
+        <activity android:name=".ProfileActivity"/>
     </application>
 
 </manifest>
