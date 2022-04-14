@@ -27,8 +27,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
 import com.thecodework.jetpackcomposefirstapp.Data.ItemData
 import com.thecodework.jetpackcomposefirstapp.Data.ItemName
-import com.thecodework.jetpackcomposefirstapp.FavoriteAcivity
-import com.thecodework.jetpackcomposefirstapp.ProfileActivity
 
 class HomeActivity: ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
