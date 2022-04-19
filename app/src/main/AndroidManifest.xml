@@ -25,6 +25,7 @@
         <activity android:name=".HomeActivity"/>
         <activity android:name=".FavoriteAcivity"/>
         <activity android:name=".ProfileActivity"/>
+        <activity android:name=".DummyActivity"/>
     </application>
 
 </manifest>

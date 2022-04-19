@@ -22,11 +22,23 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
 import com.thecodework.jetpackcomposefirstapp.Data.ItemData
 import com.thecodework.jetpackcomposefirstapp.Data.ItemName
+import android.R
+import android.view.View
+
+import androidx.annotation.NonNull
+import androidx.compose.ui.input.key.Key.Companion.Home
+
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
+
+
 
 class HomeActivity: ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,19 +46,34 @@ class HomeActivity: ComponentActivity() {
 
     setContent {
       ScaffoldWithBottomMenu()
-      HomeContent()
+    // HomeContent()
 
     }
   }
   @Composable
+  fun TopBar() {
+//    TopAppBar(
+//      title = {
+//                Image(painter = painterResource(id = R.drawable.ic_arr), contentDescription ="Icon" )
+//        Text(text = stringResource(R.string.app_name), fontSize = 18.sp)
+//              },
+//      backgroundColor = colorResource(id = R.color.purple_500),
+//      contentColor = Color.White
+//    )
+  }
+  @Composable
   fun ScaffoldWithBottomMenu() {
-    Scaffold(bottomBar = {BottomBar()}
+    Scaffold(
+      bottomBar = {BottomBar()},
+      topBar = {TopBar()}
+
     ) {
       //content area
       Box(modifier = Modifier
         .background(Color(0xff546e7a))
         .fillMaxSize())
     }
+    HomeContent()
   }
 
   @Composable
@@ -56,6 +83,7 @@ class HomeActivity: ComponentActivity() {
     ) {
       items(items = ItemData.list, itemContent = { ItemName ->
         ItemCard(ItemName)
+
       })
     }
   }
@@ -147,12 +175,9 @@ class HomeActivity: ComponentActivity() {
         selected = (selectedIndex.value == 2),
         onClick = {
           selectedIndex.value = 2
-          val intent = Intent(this@HomeActivity, ProfileActivity::class.java)
-          startActivity(intent)
-          finish()
         })
-    }
-  }
 
+      }
+    }
 }
 

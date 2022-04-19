@@ -93,7 +93,7 @@ class LoginScreen : ComponentActivity() {
   @Composable
   fun SignIn(){
     Button(onClick = {
-      val intent = Intent(this@LoginScreen, HomeActivity::class.java)
+      val intent = Intent(this@LoginScreen, DummyActivity::class.java)
       startActivity(intent)
       finish()
 
