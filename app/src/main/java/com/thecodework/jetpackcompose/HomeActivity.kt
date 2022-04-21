@@ -31,6 +31,7 @@ import com.thecodework.jetpackcomposefirstapp.Data.ItemData
 import com.thecodework.jetpackcomposefirstapp.Data.ItemName
 import android.R
 import android.view.View
+import android.widget.Toast
 
 import androidx.annotation.NonNull
 import androidx.compose.ui.input.key.Key.Companion.Home
@@ -46,7 +47,7 @@ class HomeActivity: ComponentActivity() {
 
     setContent {
       ScaffoldWithBottomMenu()
-    // HomeContent()
+     HomeContent()
 
     }
   }
@@ -73,13 +74,12 @@ class HomeActivity: ComponentActivity() {
         .background(Color(0xff546e7a))
         .fillMaxSize())
     }
-    HomeContent()
   }
 
   @Composable
   fun HomeContent() {
     LazyColumn(
-      contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp)
+     // contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp)
     ) {
       items(items = ItemData.list, itemContent = { ItemName ->
         ItemCard(ItemName)
@@ -154,6 +154,7 @@ class HomeActivity: ComponentActivity() {
         selected = (selectedIndex.value == 0),
         onClick = {
           selectedIndex.value = 0
+          Toast.makeText(this@HomeActivity,"This is Home page",Toast.LENGTH_LONG).show()
         })
 
       BottomNavigationItem(icon = {
@@ -163,9 +164,10 @@ class HomeActivity: ComponentActivity() {
         selected = (selectedIndex.value == 1),
         onClick = {
           selectedIndex.value = 1
-          val intent = Intent(this@HomeActivity, FavoriteAcivity::class.java)
-          startActivity(intent)
-          finish()
+          Toast.makeText(this@HomeActivity,"This is favorite page",Toast.LENGTH_LONG).show()
+//          val intent = Intent(this@HomeActivity, FavoriteAcivity::class.java)
+//          startActivity(intent)
+//          finish()
         })
 
       BottomNavigationItem(icon = {
@@ -175,6 +177,10 @@ class HomeActivity: ComponentActivity() {
         selected = (selectedIndex.value == 2),
         onClick = {
           selectedIndex.value = 2
+          val intent = Intent(this@HomeActivity, HomeActivity::class.java)
+          startActivity(intent)
+          finish()
+          Toast.makeText(this@HomeActivity,"This is profile page",Toast.LENGTH_LONG).show()
         })
 
       }
