@@ -1,9 +1,17 @@
 package com.thecodework.jetpackcompose
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
@@ -12,17 +20,30 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 
+@ExperimentalMaterialApi
 @Composable
 fun MainScreen() {
   val navController = rememberNavController()
   Scaffold(
-    bottomBar = { BottomBar(navController = navController)}
+    bottomBar = { BottomBar(navController = navController)
+    }
   ){
       BottomNavGraph(navController = navController)
+    TopBar()
   }
 }
-
 @Composable
+fun TopBar() {
+    TopAppBar(
+      title = {
+                 // Image(painter = painterResource(id = R.drawable.ic_arrow_back), contentDescription = "Icon")
+
+        Text(text = stringResource(R.string.app_name), fontSize = 18.sp)
+              },
+      backgroundColor = colorResource(id = R.color.purple_500),
+      contentColor = Color.White
+    )
+}@Composable
 fun BottomBar(navController: NavHostController){
   val screens = listOf(
     BottomBarScreen.Home,

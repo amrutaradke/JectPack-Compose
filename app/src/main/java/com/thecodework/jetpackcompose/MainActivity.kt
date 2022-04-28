@@ -34,17 +34,7 @@ class MainActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
     setContent {
       MainScreen()
-//      val itemRepository = ItemData
-//      val getAllData = itemRepository.list
-//
-//      LazyColumn(contentPadding = PaddingValues(all = 12.dp),
-//      verticalArrangement = Arrangement.spacedBy(12.dp)){
-//        itemsIndexed(items = getAllData){
-//          index,itemName ->
-//          Log.d("MainActivity", index.toString())
-//          ItemCard(itemName = itemName)
-//        }
-//      }
+
     }
   }
 
